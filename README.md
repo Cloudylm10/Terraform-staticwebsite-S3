@@ -9,6 +9,61 @@ This Terraform project deploys a static personal portfolio website on AWS S3 wit
 - Proper public access configuration
 - Website hosting configuration
 
+Prerequisites
+Before using this Terraform project, ensure you have:
+
+AWS Account
+
+Active AWS account with proper permissions to create S3 buckets and manage IAM policies
+
+AWS CLI Installed
+
+bash
+# Installation instructions for AWS CLI
+# For Windows:
+# Download from https://aws.amazon.com/cli/
+
+# For Linux/macOS:
+curl "https://aws.amazon.com/cli/" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Verify installation
+aws --version
+AWS CLI Configured
+
+bash
+aws configure
+# Enter your AWS Access Key ID, Secret Access Key, default region (us-east-1), and output format (json)
+Terraform Installed
+
+bash
+# For Linux:
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+
+# For macOS (using Homebrew):
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+# Verify installation
+terraform -version
+Project Files
+
+Ensure you have these files in your project directory:
+
+main.tf (Terraform configuration)
+
+variables.tf (Variable definitions)
+
+index.html (Portfolio page)
+
+error.html (404 error page)
+
+profile.jpg (Profile image)
+
 ## Terraform Workflow Explanation
 
 ### 1. Initialization (`terraform init`)
