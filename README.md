@@ -9,60 +9,81 @@ This Terraform project deploys a static personal portfolio website on AWS S3 wit
 - Proper public access configuration
 - Website hosting configuration
 
-Prerequisites
-Before using this Terraform project, ensure you have:
+## Prerequisites
 
-AWS Account
+Before using this Terraform project, ensure you have the following components set up:
 
-Active AWS account with proper permissions to create S3 buckets and manage IAM policies
+### 1. AWS Account
+- An active AWS account with proper permissions to:
+  - Create and manage S3 buckets
+  - Configure IAM policies
+  - Manage public access settings
 
-AWS CLI Installed
+### 2. AWS CLI Installation
 
-bash
-# Installation instructions for AWS CLI
-# For Windows:
-# Download from https://aws.amazon.com/cli/
+#### For Windows:
+- Download the AWS CLI installer from [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+- Run the installer and follow the prompts
 
-# For Linux/macOS:
+#### For Linux/macOS:
+```bash
 curl "https://aws.amazon.com/cli/" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
 
 # Verify installation
 aws --version
-AWS CLI Configured
+```
 
-bash
+### 3. AWS CLI Configuration
+Configure your AWS credentials by running:
+```bash
 aws configure
-# Enter your AWS Access Key ID, Secret Access Key, default region (us-east-1), and output format (json)
-Terraform Installed
+```
+You'll need to provide:
+- AWS Access Key ID
+- AWS Secret Access Key
+- Default region name (use `us-east-1` for this project)
+- Default output format (use `json`)
 
-bash
-# For Linux:
+### 4. Terraform Installation
+
+#### For Linux:
+```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install terraform
+```
 
-# For macOS (using Homebrew):
+#### For macOS (using Homebrew):
+```bash
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
+```
 
-# Verify installation
+Verify Terraform installation:
+```bash
 terraform -version
-Project Files
+```
 
-Ensure you have these files in your project directory:
+### 5. Project Files
+Ensure your project directory contains these files:
+- `main.tf` - Main Terraform configuration file
+- `variables.tf` - Terraform variable definitions
+- `index.html` - Your portfolio webpage
+- `error.html` - Custom 404 error page
+- `profile.jpg` - Profile image for your portfolio
 
-main.tf (Terraform configuration)
+These files should be in the same directory when you run Terraform commands. The HTML files should contain your website content, and the profile image should be properly sized for web display.
 
-variables.tf (Variable definitions)
-
-index.html (Portfolio page)
-
-error.html (404 error page)
-
-profile.jpg (Profile image)
+### Verification Checklist
+Before proceeding with Terraform deployment:
+- [ ] AWS CLI installed and configured (`aws --version` works)
+- [ ] Terraform installed (`terraform -version` works)
+- [ ] All project files present in working directory
+- [ ] AWS credentials have sufficient permissions
+- [ ] Default region set to us-east-1 in AWS configuration
 
 ## Terraform Workflow Explanation
 
